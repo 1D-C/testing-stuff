@@ -1,97 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Interactive Novel</title>
-  <style>
-    body {
-      background: black;
-      color: white;
-      font-family: "Courier New", monospace;
-      text-align: center;
-      padding: 50px;
-    }
-
-    .box {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid white;
-    }
-
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
-      background: white;
-      border: none;
-      font-family: inherit;
-    }
-
-    button:hover {
-      background: gray;
-      color: white;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="box">
-  <h1 id="title">The Beginning</h1>
-  <p id="story">You wake up in a dark room. There are two doors.</p>
+  <div id="game">
+    <h1 id="title">My Interactive Novel</h1>
 
-  <div id="choices">
-    <button onclick="choice1()">Open left door</button>
-    <button onclick="choice2()">Open right door</button>
+    <p id="story-text">Loading story...</p>
+
+    <div id="choices"></div>
   </div>
-</div>
 
-<script>
-  function choice1() {
-    document.getElementById("title").innerText = "The Left Door";
-    document.getElementById("story").innerText =
-      "You enter a library filled with floating books. One book glows.";
-
-    document.getElementById("choices").innerHTML = `
-      <button onclick="endingGood()">Read the glowing book</button>
-      <button onclick="endingBad()">Ignore it and leave</button>
-    `;
-  }
-
-  function choice2() {
-    document.getElementById("title").innerText = "The Right Door";
-    document.getElementById("story").innerText =
-      "You fall into a deep pit. It feels endless...";
-
-    document.getElementById("choices").innerHTML = `
-      <button onclick="endingBad()">Keep falling</button>
-      <button onclick="endingGood()">Grab a hidden ladder</button>
-    `;
-  }
-
-  function endingGood() {
-    document.getElementById("title").innerText = "Good Ending";
-    document.getElementById("story").innerText =
-      "You escape the mystery and find the truth behind the dream.";
-
-    document.getElementById("choices").innerHTML = `
-      <button onclick="restart()">Play Again</button>
-    `;
-  }
-
-  function endingBad() {
-    document.getElementById("title").innerText = "Bad Ending";
-    document.getElementById("story").innerText =
-      "Everything fades... you are stuck in the dream forever.";
-
-    document.getElementById("choices").innerHTML = `
-      <button onclick="restart()">Try Again</button>
-    `;
-  }
-  function restart() {
-    location.reload();
-  }
-</script>
-
+  <script src="story.js"></script>
+  <script src="game.js"></script>
 </body>
 </html>
